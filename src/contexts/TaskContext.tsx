@@ -1,11 +1,11 @@
 import { ChangeEvent, createContext, FormEvent, ReactNode, useEffect, useState } from "react";
-
+import { v4 } from 'uuid';
 interface TaskProviderProps {
   children: ReactNode
 }
 
 interface Task {
-  id: number;
+  id: string;
   task: string;
   isComplete: boolean;
 }
@@ -15,8 +15,8 @@ interface TaskContextProps {
   task: string;
   handleTaskTextChange: (event: ChangeEvent<HTMLInputElement>) => void;
   handleCreateNewTask: (event: FormEvent) => void;
-  deleteTask: (id: number) => void;
-  toggleTaskCompletion: (id: number) => void;
+  deleteTask: (id: string) => void;
+  toggleTaskCompletion: (id: string) => void;
 }
 
 export const TaskContext = createContext({} as TaskContextProps);
@@ -48,7 +48,7 @@ export function TaskProvider({ children }: TaskProviderProps) {
     if (task.trim() === "") return;
 
     const newTask = {
-      id: Math.random(),
+      id: v4(),
       task,
       isComplete: false,
     }
@@ -61,12 +61,12 @@ export function TaskProvider({ children }: TaskProviderProps) {
     setTask('');
   }
 
-  function deleteTask(id: number) {
+  function deleteTask(id: string) {
     const filteredTasks = tasks.filter((task) => task.id !== id);
     setTasks(filteredTasks);
   }
 
-  function toggleTaskCompletion(id: number) {
+  function toggleTaskCompletion(id: string) {
     const newTasks = tasks.map((task) => {
       if (task.id === id) {
         return {

@@ -6,7 +6,7 @@ import styles from './Task.module.css';
 
 interface TaskProps {
   task: {
-    id: number;
+    id: string;
     task: string;
     isComplete: boolean;
   }
