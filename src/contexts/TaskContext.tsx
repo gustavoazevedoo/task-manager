@@ -1,4 +1,4 @@
-import { ChangeEvent, createContext, FormEvent, ReactNode, useState } from "react";
+import { ChangeEvent, createContext, FormEvent, ReactNode, useEffect, useState } from "react";
 
 interface TaskProviderProps {
   children: ReactNode
@@ -22,8 +22,22 @@ interface TaskContextProps {
 export const TaskContext = createContext({} as TaskContextProps);
 
 export function TaskProvider({ children }: TaskProviderProps) {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const storageData = localStorage.getItem('tasks');
+
+    if (storageData) {
+      return JSON.parse(storageData)
+    }
+
+    return [];
+  });
+
   const [task, setTask] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks])
+
 
   function handleTaskTextChange(event: ChangeEvent<HTMLInputElement>) {
     setTask(event.target.value);
