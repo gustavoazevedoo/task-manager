@@ -30,6 +30,10 @@ input[type=checkbox] {
   cursor: pointer;
 }
 
+input[type=checkbox]:hover {
+  background-color: rgba(30, 111, 159, 0.5);
+}
+
 input[type=checkbox]::before {
   content: "";
   color: transparent;
@@ -45,6 +49,10 @@ input[type=checkbox]::before {
 
 input[type=checkbox]:checked {
   background-color: currentcolor;
+}
+
+input[type=checkbox]:checked:hover {
+  background-color: var(--purple-300);
 }
 
 input[type=checkbox]:checked::before {
