@@ -1,23 +1,14 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 
 import { Task } from './Task';
 
-import styles from './Tasks.module.css';
+import { TaskContext } from '../contexts/TaskContext';
 
+import styles from './Tasks.module.css';
 import clipboardEmpty from '../assets/clipboard-empty.png';
 
-interface TasksProps {
-  tasks: {
-    id: number;
-    task: string;
-    isComplete: boolean;
-  }[];
-  onDeleteTask: (id: number) => void;
-  onToggleTaskCompletion: (id: number) => void;
-}
-
-export function Tasks({ tasks, onDeleteTask, onToggleTaskCompletion }: TasksProps) {
-
+export function Tasks() {
+  const { tasks } = useContext(TaskContext);
   const completedTasks = useMemo(() => tasks.filter((task) => task.isComplete), [tasks]);
 
   return (
@@ -40,8 +31,6 @@ export function Tasks({ tasks, onDeleteTask, onToggleTaskCompletion }: TasksProp
           <Task
             key={task.id}
             task={task}
-            onDeleteTask={onDeleteTask}
-            onToggleTaskCompletion={onToggleTaskCompletion}
           />
         ))}
 

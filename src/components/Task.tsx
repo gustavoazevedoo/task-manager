@@ -1,4 +1,7 @@
+import { useContext } from 'react';
+import { TaskContext } from '../contexts/TaskContext';
 import { Trash } from 'phosphor-react';
+
 import styles from './Task.module.css';
 
 interface TaskProps {
@@ -7,17 +10,17 @@ interface TaskProps {
     task: string;
     isComplete: boolean;
   }
-  onDeleteTask: (id: number) => void;
-  onToggleTaskCompletion: (id: number) => void;
 }
 
-export function Task({ task, onDeleteTask, onToggleTaskCompletion }: TaskProps) {
-  function handleDeleteTask() {
-    onDeleteTask(task.id);
-  }
+export function Task({ task }: TaskProps) {
+  const { toggleTaskCompletion, deleteTask } = useContext(TaskContext);
 
   function handleToggleTaskCompletion() {
-    onToggleTaskCompletion(task.id);
+    toggleTaskCompletion(task.id);
+  }
+
+  function handleDeleteTask() {
+    deleteTask(task.id);
   }
 
   return (
@@ -27,10 +30,8 @@ export function Task({ task, onDeleteTask, onToggleTaskCompletion }: TaskProps) 
         checked={task.isComplete}
         onChange={handleToggleTaskCompletion}
       />
-      {/* <label className="c-checkbox__label"> */}
-        { task.isComplete && <s>{task.task}</s> }
-        { !task.isComplete && <p>{task.task}</p> }
-      {/* </label> */}
+      { task.isComplete && <s>{task.task}</s> }
+      { !task.isComplete && <p>{task.task}</p> }
       <button 
         title='Deletar task'
         onClick={handleDeleteTask}
