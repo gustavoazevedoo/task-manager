@@ -38,13 +38,14 @@ export function TaskProvider({ children }: TaskProviderProps) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks])
 
-
   function handleTaskTextChange(event: ChangeEvent<HTMLInputElement>) {
     setTask(event.target.value);
   }
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault();
+
+    if (task.trim() === "") return;
 
     const newTask = {
       id: Math.random(),

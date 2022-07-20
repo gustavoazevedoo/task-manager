@@ -50,3 +50,8 @@
 .taskForm button[type=submit]:hover {
   background: var(--blue-300);
 }
+
+.taskForm button[type=submit]:disabled {
+  background: var(--gray-500);
+  cursor: not-allowed;
+}

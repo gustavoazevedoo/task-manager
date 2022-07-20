@@ -11,6 +11,8 @@ import styles from './App.module.css';
 
 function App() {
   const { handleCreateNewTask, handleTaskTextChange, task } = useContext(TaskContext);
+
+  const isTaskTextEmpty = task.trim() === '';
   
   return (
     <>
@@ -24,7 +26,7 @@ function App() {
             onChange={handleTaskTextChange}
             value={task}
           />
-          <button type="submit">
+          <button type="submit" disabled={isTaskTextEmpty}>
             Criar
             <PlusCircle size={16} weight="bold" />
           </button>
