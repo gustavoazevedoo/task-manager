@@ -1,0 +1,76 @@
+.taskForm {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  margin-top: -1.685rem; /* altura do input / 2 */
+}
+
+.taskForm > input {
+  flex: 1;
+  padding: 1rem;
+  background: var(--gray-500);
+  border: 1px solid var(--gray-700);
+  border: 0;
+  border-radius: 8px;
+  color: var(--gray-100);
+  line-height: 1.4;
+}
+
+.taskForm > input::placeholder {
+  color: var(--gray-300)
+}
+
+.taskForm button[type=submit] {
+  background: var(--blue-500);
+  color: var(--gray-100);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 0;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: bold;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  transition: background-color .2s, filter .2s;
+}
+
+.taskForm button[type=submit]:hover {
+  background: var(--blue-300);
+}
+
+.taskForm button[type=submit]:disabled {
+  background: var(--gray-500);
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .taskForm button[type=submit] {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 100%;
+    gap: 0;
+  }
+
+  .taskForm button[type=submit]:disabled {
+    filter: brightness(0.5);
+    background: var(--blue-500);
+  }
+
+  .taskForm button[type=submit] span {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .taskForm button[type=submit] svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
