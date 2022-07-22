@@ -62,7 +62,6 @@ input[type=checkbox]:checked::before {
 
 .task p,
 .task s {
-  font-size: 0.87rem;
   line-height: 1.4;
   width: 100%;
 }
@@ -76,8 +75,7 @@ input[type=checkbox]:checked::before {
   border-radius: 4px;
   line-height: 0;
   border: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  padding: 4px;
   cursor: pointer;
   color: var(--gray-300);
   background: transparent;

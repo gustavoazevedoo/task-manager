@@ -2,7 +2,6 @@
   max-width: 48rem;
   margin: 0 auto;
   padding: 0 1rem;
-
 }
 
 .taskForm {
@@ -10,7 +9,7 @@
   justify-content: space-between;
   gap: 0.5rem;
 
-  margin-top: -27px;
+  margin-top: -1.685rem; /* altura do input / 2 */
 }
 
 .taskForm > input {
@@ -44,7 +43,7 @@
   justify-content: center;
   gap: 0.5rem;
 
-  transition: background-color .2s;
+  transition: background-color .2s, filter .2s;
 }
 
 .taskForm button[type=submit]:hover {
@@ -54,4 +53,30 @@
 .taskForm button[type=submit]:disabled {
   background: var(--gray-500);
   cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .taskForm button[type=submit] {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 100%;
+    gap: 0;
+  }
+
+  .taskForm button[type=submit]:disabled {
+    filter: brightness(0.5);
+    background: var(--blue-500);
+  }
+
+  .taskForm button[type=submit] span {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .taskForm button[type=submit] svg {
+    width: 2rem;
+    height: 2rem;
+  }
 }

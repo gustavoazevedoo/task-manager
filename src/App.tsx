@@ -27,8 +27,8 @@ function App() {
             value={task}
           />
           <button type="submit" disabled={isTaskTextEmpty}>
-            Criar
-            <PlusCircle size={16} weight="bold" />
+            <span>Criar</span>
+            <PlusCircle size={18} weight="bold" />
           </button>
         </form>
 

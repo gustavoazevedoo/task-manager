@@ -20,12 +20,10 @@
 }
 
 .createdTasks strong {
-  font-size: 0.875rem;
   color: var(--blue-300);
 }
 
 .doneTasks strong {
-  font-size: 0.875rem;
   color: var(--purple-300);
 }
 
@@ -55,4 +53,17 @@
 
 .emptyTasks strong {
   display: block;
+}
+
+@media (max-width: 576px) {
+  .tasksHeader {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskList,
+  .emptyTasks {
+    margin: 1.5rem 0 7.5rem;
+  }
 }

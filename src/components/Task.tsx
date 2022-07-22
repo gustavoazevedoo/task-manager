@@ -36,7 +36,7 @@ export function Task({ task }: TaskProps) {
         title='Deletar task'
         onClick={handleDeleteTask}
       >
-        <Trash />
+        <Trash size={'1.5rem'} />
       </button>
     </div>
   );

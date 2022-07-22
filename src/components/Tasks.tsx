@@ -26,15 +26,16 @@ export function Tasks() {
         </div>
       </header>
 
-      <div className={styles.taskList}>
-        {tasks.map(task => (
-          <Task
-            key={task.id}
-            task={task}
-          />
-        ))}
-
-      </div>
+      {tasks.length > 0 && (
+        <div className={styles.taskList}>
+          {tasks.map(task => (
+            <Task
+              key={task.id}
+              task={task}
+            />
+          ))}
+        </div>
+      )}
 
       {!tasks.length && (
         <div className={styles.emptyTasks}>
