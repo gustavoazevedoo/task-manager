@@ -28,7 +28,7 @@
 }
 
 .taskList {
-  margin: 1.5rem 0px 2.5rem;
+  margin: 1.5rem 0px 1.5rem;
 }
 
 .emptyTasks {
@@ -55,15 +55,59 @@
   display: block;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+footer > div {
+  background-color: var(--gray-500);
+  padding: 1rem;
+  border: 1px solid var(--gray-400);
+  border-radius: 99999px;
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+footer > div button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--gray-300);
+  transition: color .2s;
+}
+
+footer > div button:hover {
+  color: var(--gray-200);
+}
+
+footer > div button.selected {
+  color: var(--purple-300);
+  font-weight: bold;
+}
+
 @media (max-width: 576px) {
   .tasksHeader {
     margin-top: 1.5rem;
+  }
+
+  footer > div {
+    max-width: 75%;
   }
 }
 
 @media (max-width: 480px) {
   .taskList,
   .emptyTasks {
-    margin: 1.5rem 0 7.5rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  footer > div {
+    max-width: 100%;
   }
 }

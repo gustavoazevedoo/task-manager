@@ -50,12 +50,24 @@
 }
 
 @media (max-width: 480px) {
+  .taskForm {
+    position: relative;
+  }
+
+  .taskForm > input {
+    padding-right: 4.5rem;
+  }
+
   .taskForm button[type=submit] {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+    position: absolute;
+    transform: translate(50%, -50%);
+    top: 1.685rem;
+    right: 2rem;
+    width: 35px;
+    height: 35px;
     border-radius: 100%;
     gap: 0;
+    padding: 0;
   }
 
   .taskForm button[type=submit]:disabled {
@@ -70,7 +82,7 @@
   }
 
   .taskForm button[type=submit] svg {
-    width: 2rem;
-    height: 2rem;
+    width: 20px;
+    height: 20px;
   }
 }
