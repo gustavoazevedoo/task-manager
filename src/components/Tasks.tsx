@@ -80,7 +80,7 @@ export function Tasks() {
 
             <p>
               <strong>Você ainda não tem tarefas finalizadas</strong>
-              marque uma tarefa como conccluída
+              marque uma tarefa como concluída
             </p>
           </div>
         )}
